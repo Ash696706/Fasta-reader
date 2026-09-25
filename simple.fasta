@@ -6,8 +6,11 @@ ATGCCATCCGATCGATTACGGGATCGATCGTACG
 file = open("fasta.file","r")
 print(file.read())
 fasta.close()
+#splitting lines in fasta file
 file = open("fasta.file","r")
 content = file.read()
 lines = content.splitlines()
 print(lines)
 file.close()
+#print particular line
+print(lines[0])
