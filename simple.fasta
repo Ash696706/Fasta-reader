@@ -2,3 +2,7 @@
 %%writefile in fasta.file
 >Sample_DNA_Sequence
 ATGCCATCCGATCGATTACGGGATCGATCGTACG
+#open fasta file
+file = open("fasta.file","r")
+print(file.read())
+fasta.close()
