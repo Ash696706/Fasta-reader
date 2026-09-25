@@ -1,2 +1,4 @@
+#writing fasta file
+%%writefile in fasta.file
 >Sample_DNA_Sequence
 ATGCCATCCGATCGATTACGGGATCGATCGTACG
