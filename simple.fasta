@@ -14,3 +14,29 @@ print(lines)
 file.close()
 #print particular line
 print(lines[0])
+#join DNA 
+%%writefile fasta.file
+>Sample_DNA_Sequence
+ATGCAATGTGGACCATGGCATAG
+CAAATTGGCAATGCA
+AATGCAAAATCCGAGTAAATGCCCCATGCAT
+file = open("fasta.file", "r")
+content = file.read()
+lines = content.splitlines()
+Header = lines[0]
+sequence = "".join(lines[1:])
+print("Header:",Header)
+print("sequence:",sequence)
+#count base pairs
+a = sequence.count("A")
+t = sequence.count("T")
+g = sequence.count("G")
+c = sequence.count("C")
+print("A:", a)
+print("T:", t)
+print("G:", g)
+print("C:", c)
+#calculate gc content
+gc_content = (g + c) / len(sequence) * 100
+print("GC content:", round(gc_content, 2), "%")
+file.close()
