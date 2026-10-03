@@ -1,42 +1,54 @@
-#writing fasta file
-%%writefile in fasta.file
->Sample_DNA_Sequence
-ATGCCATCCGATCGATTACGGGATCGATCGTACG
-#open fasta file
-file = open("fasta.file","r")
-print(file.read())
-fasta.close()
-#splitting lines in fasta file
-file = open("fasta.file","r")
-content = file.read()
-lines = content.splitlines()
-print(lines)
-file.close()
-#print particular line
-print(lines[0])
-#join DNA 
+# Writing FASTA file
 %%writefile fasta.file
 >Sample_DNA_Sequence
 ATGCAATGTGGACCATGGCATAG
 CAAATTGGCAATGCA
 AATGCAAAATCCGAGTAAATGCCCCATGCAT
+
+# Open FASTA file
+file = open("fasta.file", "r")
+print(file.read())
+file.close()
+
+# Splitting lines in FASTA file
 file = open("fasta.file", "r")
 content = file.read()
 lines = content.splitlines()
+
+print(lines)
+file.close()
+
+# Print particular line
+print(lines[0])
+
+# Join DNA sequence
+file = open("fasta.file", "r")
+content = file.read()
+lines = content.splitlines()
+
 Header = lines[0]
 sequence = "".join(lines[1:])
-print("Header:",Header)
-print("sequence:",sequence)
-#count base pairs
+
+print("Header:", Header)
+print("Sequence:", sequence)
+
+# Sequence length
+print("Sequence length:", len(sequence))
+
+# Count base pairs
 a = sequence.count("A")
 t = sequence.count("T")
 g = sequence.count("G")
 c = sequence.count("C")
+
 print("A:", a)
 print("T:", t)
 print("G:", g)
 print("C:", c)
-#calculate gc content
+
+# Calculate GC content
 gc_content = (g + c) / len(sequence) * 100
+
 print("GC content:", round(gc_content, 2), "%")
+
 file.close()
